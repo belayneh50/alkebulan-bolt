@@ -117,9 +117,9 @@ const EthiopianCalendar: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6 }}
-        className="relative mx-auto max-w-xl"
+        className="relative mx-auto w-full max-w-[650px] min-h-[530px]"
       >
-        <div className="relative overflow-hidden rounded-2xl border border-cyan-300/60 bg-slate-950/95 p-2 shadow-[0_0_20px_rgba(0,238,255,0.08)] sm:p-4">
+        <div className="relative flex h-full flex-col justify-start overflow-hidden rounded-2xl border border-cyan-300/60 bg-slate-950/95 p-6 shadow-[0_0_20px_rgba(0,238,255,0.08)]">
           <img
             src="/assets/alkebulan-emblem-640.jpg"
             alt=""
@@ -177,7 +177,7 @@ const EthiopianCalendar: React.FC = () => {
             </button>
           </div>
 
-          <div className="relative grid grid-cols-7 gap-1 sm:gap-2" role="grid" aria-label={`${ETHIOPIAN_MONTHS[view.month - 1]} ${view.year}`}>
+          <div className="relative grid grid-cols-7 gap-1 sm:gap-2 auto-rows-min" role="grid" aria-label={`${ETHIOPIAN_MONTHS[view.month - 1]} ${view.year}`}>
             {WEEKDAYS.map((weekday) => (
               <div key={weekday} role="columnheader" className="pb-2 text-center text-[0.5rem] font-bold text-amber-200 sm:text-[0.55rem]">
                 {weekday}

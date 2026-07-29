@@ -41,8 +41,10 @@ const Home: React.FC = () => (
     <HardwareExpertise />
     <Projects />
     <Testimonials />
-    <Contact />
-    <EthiopianCalendar />
+    <section className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-end justify-center max-w-7xl mx-auto px-4">
+      <Contact />
+      <EthiopianCalendar />
+    </section>
     <Footer />
   </>
 );

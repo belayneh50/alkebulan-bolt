@@ -72,7 +72,7 @@ const Contact = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[var(--neon-blue)]/5 to-[var(--neon-red)]/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="mx-auto relative z-10 w-full max-w-[650px] min-h-[530px] flex flex-col justify-between">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -95,7 +95,7 @@ const Contact = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.3 }}
           onSubmit={handleSubmit}
-          className="space-y-6"
+          className="space-y-6 flex-grow"
         >
           {/* Terminal Header */}
           <div className="flex items-center gap-2 px-4 py-3 bg-gray-900/80 rounded-t-lg border border-gray-800 border-b-0">
