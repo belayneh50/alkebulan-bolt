@@ -69,6 +69,7 @@ const NeuralInterface = () => {
         "HR Analytics: Workforce metrics and talent insights",
         "DevOps: System health and performance monitoring"
       ]}
+      showProtocol
     />
   );
 };

@@ -69,6 +69,7 @@ const CyberneticSystems = () => {
         "Logistics: Route optimization and demand forecasting",
         "Education: Adaptive learning platforms and assessment systems"
       ]}
+      showProtocol
     />
   );
 };

@@ -14,7 +14,9 @@ import {
   Database,
   Cloud,
   Code2,
-  ExternalLink
+  ExternalLink,
+  Target,
+  Layers3
 } from 'lucide-react';
 
 interface ProjectPageProps {
@@ -27,6 +29,7 @@ interface ProjectPageProps {
   benefits: { title: string; description: string; icon: React.ReactNode }[];
   technologies: string[];
   useCases: string[];
+  showProtocol?: boolean;
 }
 
 const ProjectPage: React.FC<ProjectPageProps> = ({
@@ -38,8 +41,26 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
   features,
   benefits,
   technologies,
-  useCases
+  useCases,
+  showProtocol
 }) => {
+  const protocolSteps = [
+    {
+      title: 'Strategy Before Style',
+      content: 'Every build starts with the user, the business goal, and a clear definition of success.',
+      icon: <Target className="w-7 h-7" />
+    },
+    {
+      title: 'Systems, Not Screens',
+      content: 'Reusable components, responsive behavior, and accessibility turn a visual idea into a durable product.',
+      icon: <Layers3 className="w-7 h-7" />
+    },
+    {
+      title: 'Ship, Measure, Improve',
+      content: 'I test performance and usability, launch with purpose, and improve the experience using real feedback.',
+      icon: <Gauge className="w-7 h-7" />
+    }
+  ];
   return (
     <div className="min-h-screen bg-black pt-20">
       {/* Hero Section */}
@@ -198,6 +219,50 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
           </div>
         </div>
       </section>
+
+      {showProtocol && (
+        <section className="py-16 px-4 bg-black">
+          <div className="max-w-6xl mx-auto">
+            <motion.h2
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-2xl font-bold mb-6 text-[var(--neon-blue)]"
+            >
+              BUILD PROTOCOL
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="text-gray-400 mb-12 max-w-2xl"
+            >
+              A practical process for turning ambitious concepts into clear, usable digital experiences.
+            </motion.p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {protocolSteps.map((step, index) => (
+                <motion.div
+                  key={step.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 + index * 0.12 }}
+                  className="bg-black/70 border border-gray-800 rounded-xl p-7 relative overflow-hidden hover:border-[var(--neon-blue)]/50 transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/30 flex items-center justify-center text-[var(--neon-blue)] mb-6">
+                    {step.icon}
+                  </div>
+                  <span className="text-xs tracking-[0.2em] text-[var(--neon-blue)]">0{index + 1}</span>
+                  <h3 className="text-xl font-bold text-white mt-2 mb-3">{step.title}</h3>
+                  <p className="text-gray-400 leading-relaxed">{step.content}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Use Cases */}
       <section className="py-16 px-4 bg-black">

@@ -69,6 +69,7 @@ const QuantumWeb = () => {
         "Wholesale: B2B portals with custom pricing tiers",
         "Digital Products: Secure download delivery for courses and media"
       ]}
+      showProtocol
     />
   );
 };

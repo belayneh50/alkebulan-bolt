@@ -10,7 +10,6 @@ import PCAssembly from './pages/PCAssembly';
 import SystemBuilding from './pages/SystemBuilding';
 import PerformanceOptimization from './pages/PerformanceOptimization';
 import Projects from './components/Projects';
-import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CyberneticSystems from './pages/CyberneticSystems';
@@ -40,7 +39,6 @@ const Home: React.FC = () => (
     <Skills />
     <HardwareExpertise />
     <Projects />
-    <Testimonials />
     <section className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-end justify-center max-w-7xl mx-auto px-4">
       <Contact />
       <EthiopianCalendar />
