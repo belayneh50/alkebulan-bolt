@@ -3,15 +3,11 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
   Cpu,
-  HardDrive,
   Gauge,
   Wrench,
   Layers,
   Fan,
-  MemoryStick,
   Zap,
-  Terminal,
-  ShieldCheck,
   ArrowRight,
 } from 'lucide-react';
 
@@ -61,15 +57,6 @@ const HardwareExpertise = () => {
       ],
       link: '/hardware/performance-optimization',
     },
-  ];
-
-  const specs = [
-    { icon: <Cpu className="w-6 h-6" />, label: 'CPU Tuning', value: 'Core affinity & priority scheduling' },
-    { icon: <MemoryStick className="w-6 h-6" />, label: 'Memory', value: 'XMP profiles & swap optimization' },
-    { icon: <HardDrive className="w-6 h-6" />, label: 'Storage', value: 'Partition & RAID architecture' },
-    { icon: <Fan className="w-6 h-6" />, label: 'Thermals', value: 'Fan curves & thermal headroom' },
-    { icon: <Terminal className="w-6 h-6" />, label: 'OS Kernel', value: 'Service & telemetry stripping' },
-    { icon: <ShieldCheck className="w-6 h-6" />, label: 'Stability', value: 'Stress tests & burn-in validation' },
   ];
 
   return (
@@ -155,38 +142,6 @@ const HardwareExpertise = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Spec Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="p-8 bg-black/60 backdrop-blur-sm border border-gray-800 rounded-xl"
-        >
-          <h3 className="text-lg font-bold mb-6 text-[var(--neon-blue)] flex items-center gap-2">
-            <Terminal className="w-5 h-5" />
-            <span>&gt; SYSTEM SPEC MATRIX</span>
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {specs.map((spec, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 0.7 + index * 0.08 }}
-                className="flex items-center gap-4 p-4 bg-black/50 border border-gray-800 rounded-lg hover:border-[var(--neon-blue)]/40 transition-colors"
-              >
-                <div className="text-[var(--neon-blue)] shrink-0">{spec.icon}</div>
-                <div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider mb-0.5">
-                    {spec.label}
-                  </div>
-                  <div className="text-sm text-gray-300">{spec.value}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

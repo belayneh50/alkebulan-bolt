@@ -4,7 +4,6 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
-import Skills from './components/Skills';
 import HardwareExpertise from './components/HardwareExpertise';
 import PCAssembly from './pages/PCAssembly';
 import SystemBuilding from './pages/SystemBuilding';
@@ -36,7 +35,6 @@ const Home: React.FC = () => (
     <Hero />
     <About />
     <Services />
-    <Skills />
     <HardwareExpertise />
     <Projects />
     <section className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-end justify-center max-w-7xl mx-auto px-4">

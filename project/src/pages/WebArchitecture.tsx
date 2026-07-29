@@ -1,5 +1,6 @@
 import React from 'react';
 import ServicePage from '../components/ServicePage';
+import Skills from '../components/Skills';
 import { Globe, Zap, Shield, Users, TrendingUp } from 'lucide-react';
 
 const WebArchitecture = () => {
@@ -76,6 +77,7 @@ const WebArchitecture = () => {
           description: "Smooth deployment to production with ongoing maintenance and feature updates."
         }
       ]}
+      extraSection={<Skills />}
     />
   );
 };

@@ -33,6 +33,7 @@ const SystemBuilding = () => {
         { step: '03', title: 'Driver & Firmware Provisioning', description: 'All drivers and firmware are installed from official sources, with BIOS updates applied for maximum stability.' },
         { step: '04', title: 'Validation & Handoff', description: 'Storage benchmarks confirm expected throughput, and the system is documented for your reference and future maintenance.' },
       ]}
+      showSpecMatrix
     />
   );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import ServicePage from '../components/ServicePage';
+import Skills from '../components/Skills';
 import { Cpu, Zap, Brain, Users, TrendingUp } from 'lucide-react';
 
 const AIIntegration = () => {
@@ -76,6 +77,7 @@ const AIIntegration = () => {
           description: "Continuous performance tracking and model refinement over time."
         }
       ]}
+      extraSection={<Skills />}
     />
   );
 };

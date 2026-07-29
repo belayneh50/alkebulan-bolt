@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, Zap, Cpu } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Zap, Cpu, MemoryStick, HardDrive, Fan, Terminal, ShieldCheck } from 'lucide-react';
 
 interface ServicePageProps {
   title: string;
@@ -13,6 +13,8 @@ interface ServicePageProps {
   features: string[];
   benefits: { title: string; description: string }[];
   process: { step: string; title: string; description: string }[];
+  showSpecMatrix?: boolean;
+  extraSection?: React.ReactNode;
 }
 
 const ServicePage: React.FC<ServicePageProps> = ({
@@ -24,8 +26,18 @@ const ServicePage: React.FC<ServicePageProps> = ({
   description,
   features,
   benefits,
-  process
+  process,
+  showSpecMatrix,
+  extraSection
 }) => {
+  const specs = [
+    { icon: <Cpu className="w-6 h-6" />, label: 'CPU Tuning', value: 'Core affinity & priority scheduling' },
+    { icon: <MemoryStick className="w-6 h-6" />, label: 'Memory', value: 'XMP profiles & swap optimization' },
+    { icon: <HardDrive className="w-6 h-6" />, label: 'Storage', value: 'Partition & RAID architecture' },
+    { icon: <Fan className="w-6 h-6" />, label: 'Thermals', value: 'Fan curves & thermal headroom' },
+    { icon: <Terminal className="w-6 h-6" />, label: 'OS Kernel', value: 'Service & telemetry stripping' },
+    { icon: <ShieldCheck className="w-6 h-6" />, label: 'Stability', value: 'Stress tests & burn-in validation' },
+  ];
   return (
     <div className="min-h-screen bg-black pt-20">
       {/* Hero Section */}
@@ -153,6 +165,51 @@ const ServicePage: React.FC<ServicePageProps> = ({
           </div>
         </div>
       </section>
+
+      {showSpecMatrix && (
+        <section className="py-16 px-4 bg-black">
+          <div className="max-w-6xl mx-auto">
+            <motion.h2
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-2xl font-bold mb-6 text-[var(--neon-blue)]"
+            >
+              &gt; SYSTEM SPEC MATRIX
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="text-gray-400 mb-10 max-w-2xl"
+            >
+              A compact technical summary of the system-level tuning and hardware configuration that keeps your build stable, fast, and ready for real workflows.
+            </motion.p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {specs.map((spec, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
+                  className="p-4 bg-black/70 border border-[var(--neon-blue)]/20 rounded-xl"
+                >
+                  <div className="flex items-center gap-3 mb-3 text-[var(--neon-blue)]">
+                    {spec.icon}
+                    <span className="text-xs uppercase tracking-[0.22em] text-slate-400">{spec.label}</span>
+                  </div>
+                  <p className="text-sm text-gray-300 leading-relaxed">{spec.value}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {extraSection}
 
       {/* Process */}
       <section className="py-16 px-4 bg-gradient-to-b from-black via-gray-900/30 to-black">
